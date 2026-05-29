@@ -9,7 +9,7 @@ const syne = Syne({ subsets: ["latin"], variable: "--font-syne" })
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cedriccreed.vercel.app"),
+  metadataBase: new URL("https://cedriccreed-portafolio.vercel.app"),
   title: "Cedric Lavin — Full Stack Developer",
   description:
     "Full Stack Developer especializado en React, TypeScript y Node.js. Experiencia en ciberseguridad y desarrollo de aplicaciones modernas. Concepción, Chile.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Cedric Lavin — Full Stack Developer",
     description:
       "Full Stack Developer especializado en React, TypeScript y Node.js. Concepción, Chile.",
-    url: "https://cedriccreed.vercel.app",
+    url: "https://cedriccreed-portafolio.vercel.app",
     siteName: "Cedric Lavin Portfolio",
     locale: "es_CL",
     type: "website",

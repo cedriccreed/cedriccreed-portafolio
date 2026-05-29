@@ -25,6 +25,10 @@ const navStyle: CSSProperties = {
   mixBlendMode: "normal",
 }
 
+const heroImageSizes = "(max-width: 480px) 90vw, (max-width: 1024px) 400px, 500px"
+const projectImageSizes = "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 700px"
+const compImageSizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+
 const navInnerStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
@@ -274,6 +278,7 @@ export default function Home() {
               src="/foto-cedric-lavin.png"
               alt="Cedric Lavin"
               fill
+              sizes={heroImageSizes}
               className="object-cover object-center"
               priority
               style={{ filter: "none" }}
@@ -374,6 +379,7 @@ export default function Home() {
                   src="/sequre-quantum.png"
                   alt="QRNG Platform"
                   fill
+                  sizes={projectImageSizes}
                   className="object-cover object-center"
                   priority
                 />
@@ -409,6 +415,7 @@ export default function Home() {
                   src="/biogps-page-web.png"
                   alt="GPS LL301 Landing"
                   fill
+                  sizes={projectImageSizes}
                   className="object-cover object-center"
                 />
               </div>
@@ -441,6 +448,7 @@ export default function Home() {
                   src="/biogps-page-web.png"
                   alt="BioGPS Platform"
                   fill
+                  sizes={projectImageSizes}
                   className="object-cover object-center"
                 />
               </div>
@@ -475,6 +483,7 @@ export default function Home() {
                   src="/personajes-biblicos.png"
                   alt="Personajes Bíblicos"
                   fill
+                  sizes={projectImageSizes}
                   className="object-cover object-center"
                 />
               </div>
@@ -514,6 +523,7 @@ export default function Home() {
                   src="/api-rest.png"
                   alt="API REST Videojuegos"
                   fill
+                  sizes={projectImageSizes}
                   className="object-cover object-center"
                 />
               </div>
@@ -533,6 +543,7 @@ export default function Home() {
                   src="/biogps-page-web.png"
                   alt="BioGPS"
                   fill
+                  sizes={compImageSizes}
                   className="object-cover object-center"
                 />
               </div>
@@ -543,6 +554,7 @@ export default function Home() {
                   src="/personajes-biblicos.png"
                   alt="Personajes Bíblicos"
                   fill
+                  sizes={compImageSizes}
                   className="object-cover object-center"
                 />
               </div>
