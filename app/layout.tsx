@@ -40,7 +40,8 @@ export const metadata: Metadata = {
       "Full Stack Developer especializado en React, TypeScript y Node.js. Concepción, Chile.",
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/cc-logo-icon.png", type: "image/png" }],
+    apple: [{ url: "/cc-logo-icon.png" }],
   },
 }
 

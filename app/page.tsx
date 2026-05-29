@@ -13,6 +13,30 @@ const linkStyle: CSSProperties = {
   fontWeight: 600,
 }
 
+const navStyle: CSSProperties = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  width: "100%",
+  zIndex: 100,
+  padding: "12px 20px",
+  backgroundColor: "#0e0e0e",
+  mixBlendMode: "normal",
+}
+
+const navInnerStyle: CSSProperties = {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  alignItems: "center",
+  justifyContent: "space-between",
+  width: "100%",
+  maxWidth: "1400px",
+  margin: "0 auto",
+  gap: "8px",
+}
+
 const t = {
   es: {
     nav: ["TRABAJOS", "SOBRE MÍ", "CONTACTO"],
@@ -100,7 +124,7 @@ const t = {
 
 function ProjectLinks({ links }: { links: { label: string; href: string }[] }) {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "16px" }}>
+    <div className="project-links" style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "16px" }}>
       {links.map((link) =>
         link.href === "#" ? (
           <span key={link.label} style={{ ...linkStyle, color: "#888", cursor: "default" }}>
@@ -140,6 +164,8 @@ export default function Home() {
 
     // Parallax Effect
     const handleScroll = () => {
+      if (window.innerWidth < 768) return
+
       const scroll = window.pageYOffset
 
       const heroLine1 = document.getElementById("hero-line-1")
@@ -206,41 +232,43 @@ export default function Home() {
     <>
       <div className="blob" id="cursor-blob"></div>
 
-      <nav>
-        <div className="logo">
-          <Image
-            src="/cedriccreed_blanco.svg"
-            width={120}
-            height={40}
-            alt="cedriccreed"
-            className="object-contain h-8 w-auto"
-          />
+      <nav style={navStyle}>
+        <div style={navInnerStyle}>
+          <div className="logo">
+            <Image
+              src="/cedriccreed_blanco.svg"
+              width={120}
+              height={40}
+              alt="cedriccreed"
+              className="object-contain h-8 w-auto"
+            />
+          </div>
+          <ul className="nav-links">
+            <li>
+              <a href="#work">{copy.nav[0]}</a>
+            </li>
+            <li>
+              <a href="#about">{copy.nav[1]}</a>
+            </li>
+            <li>
+              <a href="#contact">{copy.nav[2]}</a>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={toggleLang}
+                className="text-sm font-bold tracking-widest hover:text-[#ff3e00] transition-colors duration-200"
+              >
+                {lang === "es" ? "EN" : "ES"}
+              </button>
+            </li>
+          </ul>
         </div>
-        <ul className="nav-links">
-          <li>
-            <a href="#work">{copy.nav[0]}</a>
-          </li>
-          <li>
-            <a href="#about">{copy.nav[1]}</a>
-          </li>
-          <li>
-            <a href="#contact">{copy.nav[2]}</a>
-          </li>
-          <li>
-            <button
-              type="button"
-              onClick={toggleLang}
-              className="text-sm font-bold tracking-widest hover:text-[#ff3e00] transition-colors duration-200"
-            >
-              {lang === "es" ? "EN" : "ES"}
-            </button>
-          </li>
-        </ul>
       </nav>
 
       <main>
         {/* HERO SECTION */}
-        <section id="hero">
+        <section id="hero" style={{ paddingTop: "80px" }}>
           <div className="hero-img relative" id="hero-img">
             <Image
               src="/foto-cedric-lavin.png"
@@ -303,7 +331,7 @@ export default function Home() {
               </h2>
               <p
                 style={{
-                  fontSize: "1.5rem",
+                  fontSize: "clamp(1rem, 4vw, 1.5rem)",
                   fontWeight: 300,
                   color: "#888",
                 }}
@@ -386,7 +414,7 @@ export default function Home() {
               </div>
               <div
                 className="floating-label huge-type outline-text"
-                style={{ fontSize: "8rem", right: "auto", left: "-100px" }}
+                style={{ fontSize: "8rem", right: "-20px", left: "auto" }}
               >
                 CHILE
               </div>
@@ -452,7 +480,7 @@ export default function Home() {
               </div>
               <div
                 className="floating-label huge-type outline-text"
-                style={{ fontSize: "8rem", right: "auto", left: "-100px" }}
+                style={{ fontSize: "8rem", right: "-20px", left: "auto" }}
               >
                 GSAP
               </div>
@@ -553,6 +581,7 @@ export default function Home() {
             </div>
             <div className="divider"></div>
             <div
+              className="footer-bar"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -575,7 +604,7 @@ export default function Home() {
                 />
                 <div>© 2026 CEDRIC LAVIN</div>
               </div>
-              <div style={{ display: "flex", gap: "30px", flexWrap: "wrap" }}>
+              <div className="footer-links" style={{ display: "flex", gap: "30px", flexWrap: "wrap" }}>
                 <a href="mailto:cedriclavin@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>
                   EMAIL
                 </a>
