@@ -220,6 +220,20 @@ nav {
   font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 600;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.nav-links button {
+  color: white;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 #hero {
@@ -421,27 +435,74 @@ footer {
     padding: 0 20px;
   }
 
+  /* FIX 1: Nav container */
   nav {
-    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 12px 20px;
+    display: flex;
     flex-direction: column;
-    gap: 15px;
-    background: rgba(14, 14, 14, 0.95);
+    align-items: center;
+    gap: 8px;
+    background: #0e0e0e;
+    mix-blend-mode: normal;
   }
 
+  /* FIX 2: Nav logo */
+  .nav-logo,
   .logo {
-    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .nav-links {
-    gap: 20px;
+  .nav-logo img,
+  .logo img {
+    height: 24px;
+    width: auto;
   }
 
-  .nav-links a {
-    font-size: 0.75rem;
+  /* FIX 3: Nav links row */
+  ul.nav-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+  }
+
+  ul.nav-links li a,
+  ul.nav-links li button {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+    min-height: 36px;
+    color: white;
+    letter-spacing: 0.05em;
   }
 
   .huge-type {
-    font-size: clamp(3rem, 15vw, 6rem);
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+
+  #about h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+
+  #about p {
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+  }
+
+  .project-info {
+    padding-top: 24px !important;
   }
 
   .hero-img {
@@ -458,8 +519,10 @@ footer {
     min-height: auto;
   }
 
+  /* FIX 4: Hero padding top to avoid nav overlap */
   #hero {
     height: 100vh;
+    padding-top: 120px;
   }
 
   .project-row {
@@ -477,10 +540,11 @@ footer {
   }
 
   .floating-label {
+    left: auto !important;
+    right: -10px !important;
     font-size: 4rem !important;
     opacity: 0.05;
     bottom: -20px;
-    right: -30px;
   }
 
   .sticky-type {
@@ -522,8 +586,44 @@ footer {
   }
 
   .footer-cta {
-    font-size: 4rem;
+    font-size: clamp(2rem, 10vw, 3rem) !important;
     padding: 50px 0;
+  }
+
+  .footer-cta a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
+  .footer-links a,
+  .footer-bar a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .footer-bar {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+  }
+
+  .footer-links {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .project-links a,
+  .project-links span {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 0;
   }
 
   footer > div > div[style*="display: flex"] {
